@@ -1,7 +1,11 @@
-package com.wl.controller;
+package com.wl.controller.api;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.UUID;
 
+import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +16,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.mysql.fabric.xmlrpc.base.Data;
+import com.wl.authorization.annotation.Authorization;
+import com.wl.authorization.manager.impl.RedisTokenManager;
 import com.wl.model.Account;
 import com.wl.service.RegService;
+import com.wl.service.TokenService;
+import com.wl.web.util.MD5;
 import com.wl.web.util.ResponseUtils;
 
 /**
@@ -22,12 +31,16 @@ import com.wl.web.util.ResponseUtils;
  *
  */
 @Controller
-public class LoginController {
+@RequestMapping("/api")
+public class ApiLoginController {
 	
 	@Autowired
 	private RegService regService;
 	
-	@RequestMapping(value="login", method=RequestMethod.POST)
+	@Autowired
+	private TokenService tokenService;
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody String login(@RequestParam(value="username", required=true) String username, 
 			@RequestParam(value="password", required=true) String password) {
 		// 后端数据库校验
@@ -35,10 +48,16 @@ public class LoginController {
 		System.out.println(JSON.toJSON(acc));
 		
 		if(acc != null) {
-			//TODO token 
 			JSONObject data = new JSONObject();
-			data.put("uid", acc.getId());
-			data.put("token", "1111111");
+			data.put("uid", String.valueOf(acc.getId()));
+			
+			String token = UUID.randomUUID().toString() + new Date().toString();
+			token = MD5.GetMD5Code(token);
+			
+			System.out.println(token + "    len:" + token.length());
+			token = token.toUpperCase();
+			data.put("token", token);
+			tokenService.createToken(String.valueOf(acc.getId()), token);
 			return ResponseUtils.generSuccJsonStr(data);
 		} else {
 			return ResponseUtils.generFailedJsonStr(100, "用户名密码错误");

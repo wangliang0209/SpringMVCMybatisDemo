@@ -1,4 +1,4 @@
-package com.wl.controller;
+package com.wl.controller.api;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.wl.authorization.annotation.Authorization;
 import com.wl.model.User;
 import com.wl.service.UserService;
 import com.wl.web.util.ResponseUtils;
@@ -22,14 +23,15 @@ import com.wl.web.util.ResponseUtils;
  *
  */
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/api/user")
+public class ApiUserController {
 	
 	@Autowired
 	private UserService userService;
 	
 	//produces = {"application/json;charset=UTF-8"}
 	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	@Authorization
 	private @ResponseBody String getUserByUid(@RequestParam(value="uid") String uid) {
 		
 		if(uid == null || "".equals(uid)){
@@ -48,6 +50,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
+	@Authorization
 	private @ResponseBody String getUserList() {
 		List<User> users = userService.getUsers();
 		

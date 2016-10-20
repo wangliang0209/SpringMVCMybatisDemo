@@ -1,8 +1,10 @@
 package com.wl.service;
 
 
+import java.net.URI;
 import java.util.List;
 
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
 import com.wl.model.User;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring.xml", "classpath:spring-mybatis.xml"})
@@ -23,11 +28,20 @@ public class TestUserService {
 	
 	@Test
 	public void testInsert() {
-		User user = new User();
-		user.setName("wangliang");
-		user.setAge(30);
-		int ret = userService.insert(user);
-		System.out.println("testInsert >> " + ret);
+		GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
+		poolConfig.setMaxIdle(300);
+		poolConfig.setMaxTotal(600);
+		URI uri = URI.create("http://localhost:6379/");
+		JedisPool jedisPool = new JedisPool(uri); //new JedisPool(poolConfig, "localhost", 6379, 6000, "123456", false, null, null, null);
+		try (Jedis jedis = jedisPool.getResource()) {
+            jedis.setex("111", 6000, "fdfdfdfdf");
+        }
+		jedisPool.close();
+//		User user = new User();
+//		user.setName("wangliang");
+//		user.setAge(30);
+//		int ret = userService.insert(user);
+//		System.out.println("testInsert >> " + ret);
 	}
 	
 	@Test

@@ -13,10 +13,26 @@
     default-lazy-init="true">  
     
     <mvc:annotation-driven>  
-        <mvc:message-converters>  
-            <bean class="com.wl.web.util.UTF8StringHttpMessageConverter" />  
-        </mvc:message-converters>  
-    </mvc:annotation-driven>  
+        <mvc:message-converters register-defaults="true">
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	            <constructor-arg value="UTF-8" />
+	        </bean>
+	    </mvc:message-converters>
+    </mvc:annotation-driven> 
+    
+    <mvc:interceptors>
+    <!--身份验证的拦截器-->
+    <bean id="authorizationInterceptor" class="com.wl.authorization.interceptor.AuthorizationInterceptor">
+           <!--验证信息存储的Http头-->
+           <property name="httpHeaderName" value="authorization" />
+           <!--验证信息通用前缀，例如Bearer-->
+           <property name="httpHeaderPrefix" value="" />
+           <!--验证失败时的错误信息-->
+           <property name="unauthorizedErrorMessage" value="令牌失效，请重新登录" />
+           <!--管理验证信息的bean-->
+           <property name="manager" ref="tokenService" />
+    </bean>
+</mvc:interceptors>
       
     <!-- 通过mvc:resources设置静态资源，这样servlet就会处理这些静态资源，而不通过控制器 -->  
     <!-- 设置不过滤内容，比如:css,jquery,img 等资源文件 -->  
@@ -37,9 +53,10 @@
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">  
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>  
         <!-- 配置jsp路径前缀 -->  
-        <property name="prefix" value="/"></property>  
+        <property name="prefix" value="/WEB-INF/jsp/"></property>  
         <!-- 配置URl后缀 -->  
         <property name="suffix" value=".jsp"></property>  
     </bean>  
+    
       
 </beans> 

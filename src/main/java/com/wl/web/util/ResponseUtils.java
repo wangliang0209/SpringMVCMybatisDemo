@@ -24,7 +24,7 @@ public class ResponseUtils {
 	
 	public static JSONObject generFailedJson(int code, String error) {
 		JSONObject json = new JSONObject();
-	    json.put("code", 0);
+	    json.put("code", code);
 	    json.put("msg", error);
 	    return json;
 	}
