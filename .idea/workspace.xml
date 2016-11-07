@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3df7038a-fdbe-46af-ba9b-6370f8b841b4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/wl/mapping/AccountMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/wl/mapping/UserCourseMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/wl/mapping/UserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.walker.maven.demo/web/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.walker.maven.demo/web/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.wl.service.TestUserService.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire-reports/com.wl.service.TestUserService.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/controller/RegController.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/controller/RegController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/dao/AccountMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/dao/AccountMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/dao/UserCourseMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/dao/UserCourseMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/dao/UserMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/dao/UserMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/domain/UserInfo.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/domain/UserInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/model/Account.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/model/Account.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/model/User.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/model/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/model/UserCourse.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/model/UserCourse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/service/RegService.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/service/RegService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/service/impl/RegServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/service/impl/RegServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/service/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/service/impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/web/util/ResponseUtils.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/web/util/ResponseUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/wl/web/util/UTF8StringHttpMessageConverter.class" afterPath="$PROJECT_DIR$/target/classes/com/wl/web/util/UTF8StringHttpMessageConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/wl/service/TestRegService.class" afterPath="$PROJECT_DIR$/target/test-classes/com/wl/service/TestRegService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/wl/service/TestUserService.class" afterPath="$PROJECT_DIR$/target/test-classes/com/wl/service/TestUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wl/controller/api/ApiLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/wl/controller/api/ApiLoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="SpringMVCMybatisDemo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -108,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
@@ -135,6 +101,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -748,12 +715,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1478524438007</updated>
-      <workItem from="1478524439427" duration="3775000" />
+      <workItem from="1478524439427" duration="4055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3775000" />
+    <option name="totallyTimeSpent" value="4055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="23" width="1260" height="733" extended-state="0" />
@@ -845,14 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/web/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -881,6 +840,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="10" />
           <folding />
         </state>
       </provider>

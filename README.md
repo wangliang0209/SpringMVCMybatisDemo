@@ -1,4 +1,4 @@
-# SpringMVCMybatisDemo
+# java web server demo
 spring + spring mvc + mybatis
 
 # 项目目前只包括基本集成
