@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="src/main/resources/mybatis-generator/mysql-connector-java-5.1.40.jar" />
+
+    <context id="apimanager" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="prefix" value="com.interest"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/db_tech" userId="root"
+                        password="root"/>
+        <javaModelGenerator targetPackage="com.interest.model"
+                            targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.interest.mapping"
+                         targetProject="src/main/java/"/>
+        <javaClientGenerator targetPackage="com.interest.dao"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+        <!-- tableName 对应数据库中已经设计好的表  domainObjectName 对应要生成java对象 -->
+        <table  tableName="tb_api_template"
+               domainObjectName="ApiTemplate" enableInsert="true"
+                       enableCountByExample="false" enableUpdateByExample="false"
+                       enableDeleteByExample="false" enableSelectByExample="false"
+                        selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>
