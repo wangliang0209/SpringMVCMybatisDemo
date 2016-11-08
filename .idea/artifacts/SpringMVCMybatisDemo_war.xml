@@ -2,7 +2,7 @@
   <artifact type="war" name="SpringMVCMybatisDemo:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="SpringMVCMybatisDemo.war">
-      <element id="artifact" artifact-name="web:war exploded" />
+      <element id="artifact" artifact-name="SpringMVCMybatisDemo:war exploded" />
     </root>
   </artifact>
 </component>
