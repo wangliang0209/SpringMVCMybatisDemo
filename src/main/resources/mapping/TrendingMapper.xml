@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wl.dao.TrendingMapper" >
-  <resultMap id="BaseResultMap" type="com.wl.model.Trending" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.wl.model.Trending" extends="BaseResultMap" >
-    <result column="_updated" property="updated" jdbcType="LONGVARCHAR" />
-    <result column="_href" property="href" jdbcType="LONGVARCHAR" />
-    <result column="_desc" property="desc" jdbcType="LONGVARCHAR" />
-    <result column="_author" property="author" jdbcType="LONGVARCHAR" />
-    <result column="_title" property="title" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id
-  </sql>
-  <sql id="Blob_Column_List" >
-    _updated, _href, _desc, _author, _title
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from github_trending
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectList" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from github_trending
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from github_trending
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.wl.model.Trending" >
+<mapper namespace="com.wl.trending.dao.TrendingMapper">
+    <resultMap id="BaseResultMap" type="com.wl.trending.entity.Trending">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.wl.trending.entity.Trending" extends="BaseResultMap">
+        <result column="_updated" property="updated" jdbcType="LONGVARCHAR"/>
+        <result column="_href" property="href" jdbcType="LONGVARCHAR"/>
+        <result column="_desc" property="desc" jdbcType="LONGVARCHAR"/>
+        <result column="_author" property="author" jdbcType="LONGVARCHAR"/>
+        <result column="_title" property="title" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+    </sql>
+    <sql id="Blob_Column_List">
+        _updated, _href, _desc, _author, _title
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from github_trending
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectList" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from github_trending
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from github_trending
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.wl.trending.entity.Trending">
     insert into github_trending (id, _updated, _href, 
       _desc, _author, _title
       )
@@ -44,71 +44,71 @@
       #{desc,jdbcType=LONGVARCHAR}, #{author,jdbcType=LONGVARCHAR}, #{title,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.wl.model.Trending" >
-    insert into github_trending
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="updated != null" >
-        _updated,
-      </if>
-      <if test="href != null" >
-        _href,
-      </if>
-      <if test="desc != null" >
-        _desc,
-      </if>
-      <if test="author != null" >
-        _author,
-      </if>
-      <if test="title != null" >
-        _title,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="updated != null" >
-        #{updated,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="href != null" >
-        #{href,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="desc != null" >
-        #{desc,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="author != null" >
-        #{author,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="title != null" >
-        #{title,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wl.model.Trending" >
-    update github_trending
-    <set >
-      <if test="updated != null" >
-        _updated = #{updated,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="href != null" >
-        _href = #{href,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="desc != null" >
-        _desc = #{desc,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="author != null" >
-        _author = #{author,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="title != null" >
-        _title = #{title,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wl.model.Trending" >
+    <insert id="insertSelective" parameterType="com.wl.trending.entity.Trending">
+        insert into github_trending
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="updated != null">
+                _updated,
+            </if>
+            <if test="href != null">
+                _href,
+            </if>
+            <if test="desc != null">
+                _desc,
+            </if>
+            <if test="author != null">
+                _author,
+            </if>
+            <if test="title != null">
+                _title,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="updated != null">
+                #{updated,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="href != null">
+                #{href,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="desc != null">
+                #{desc,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.wl.trending.entity.Trending">
+        update github_trending
+        <set>
+            <if test="updated != null">
+                _updated = #{updated,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="href != null">
+                _href = #{href,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="desc != null">
+                _desc = #{desc,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="author != null">
+                _author = #{author,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="title != null">
+                _title = #{title,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wl.trending.entity.Trending">
     update github_trending
     set _updated = #{updated,jdbcType=LONGVARCHAR},
       _href = #{href,jdbcType=LONGVARCHAR},

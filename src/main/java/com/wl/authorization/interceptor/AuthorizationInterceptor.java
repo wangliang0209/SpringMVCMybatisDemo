@@ -1,27 +1,23 @@
 package com.wl.authorization.interceptor;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Method;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.core.MethodParameter;
+import com.wl.authorization.annotation.Authorization;
+import com.wl.base.utils.ResponseUtils;
+import com.wl.token.service.TokenService;
 import org.springframework.http.MediaType;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.alibaba.fastjson.JSONObject;
-import com.wl.authorization.annotation.Authorization;
-import com.wl.authorization.manager.TokenManager;
-import com.wl.service.TokenService;
-import com.wl.web.util.ResponseUtils;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Method;
+
 /**
  * 自定义拦截器，对请求进行身份验证
  */
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
-	/**
+    /**
      * 存放登录用户模型Key的Request Key
      */
     public static final String REQUEST_CURRENT_KEY = "REQUEST_CURRENT_KEY";
@@ -69,7 +65,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         }
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
-       
+
         //从header中得到token
         String token = (String) request.getParameter("token");
         System.out.println("token >>> " + token);
@@ -83,7 +79,8 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(response.getOutputStream()));
-            writer.write(ResponseUtils.generFailedJsonStr(HttpServletResponse.SC_UNAUTHORIZED, unauthorizedErrorMessage));
+            writer.write(ResponseUtils.generFailedJsonStr(HttpServletResponse.SC_UNAUTHORIZED,
+                    unauthorizedErrorMessage));
             writer.close();
             return false;
         }

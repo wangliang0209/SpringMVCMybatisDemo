@@ -57,7 +57,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.wl.dao"/>
+        <property name="basePackage" value="com.wl.*.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
@@ -73,22 +73,22 @@
     <!-- 拦截器方式配置事物 -->
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="insert*" propagation="REQUIRED"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-            <tx:method name="delete*" propagation="REQUIRED"/>
-
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="save*" propagation="REQUIRED" rollback-for="com.wl.base.exception.GlobalException"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="com.wl.base.exception.GlobalException"/>
+            <tx:method name="modify*" propagation="REQUIRED" rollback-for="com.wl.base.exception.GlobalException"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="com.wl.base.exception.GlobalException"/>
+            <tx:method name="remove*" propagation="REQUIRED" rollback-for="com.wl.base.exception.GlobalException"/>
             <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
             <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
-
+            <tx:method name="search*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="*" propagation="SUPPORTS"/>
         </tx:attributes>
     </tx:advice>
     <!-- Spring aop事务管理 -->
     <aop:config>
-        <aop:pointcut id="transactionPointcut"
-                      expression="execution(* com.wl.service..*Impl.*(..))"/>
-        <aop:advisor pointcut-ref="transactionPointcut"
-                     advice-ref="transactionAdvice"/>
+        <aop:pointcut id="transactionPointcut" expression="execution(* com.wl.*.service..*Impl.*(..))"/>
+        <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"/>
     </aop:config>
 
 </beans>  

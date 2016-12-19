@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wl.dao.TokenMapper" >
-  <resultMap id="BaseResultMap" type="com.wl.model.Token" >
-    <id column="_key" property="key" jdbcType="VARCHAR" />
-    <result column="_token" property="token" jdbcType="VARCHAR" />
-    <result column="_expire_at" property="expireAt" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    _key, _token, _expire_at
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from tb_token
-    where _key = #{key,jdbcType=VARCHAR}
-  </select>
-  <select id="selectByToken" resultMap="BaseResultMap" parameterType="java.lang.String">
-  	select 
-  	<include refid="Base_Column_List" />
-  	from tb_token
-  	where _token = #{key,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from tb_token
-    where _key = #{key,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.wl.model.Token" >
+<mapper namespace="com.wl.token.dao.TokenMapper">
+    <resultMap id="BaseResultMap" type="com.wl.token.entity.Token">
+        <id column="_key" property="key" jdbcType="VARCHAR"/>
+        <result column="_token" property="token" jdbcType="VARCHAR"/>
+        <result column="_expire_at" property="expireAt" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        _key, _token, _expire_at
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_token
+        where _key = #{key,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByToken" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_token
+        where _token = #{key,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from tb_token
+        where _key = #{key,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.wl.token.entity.Token">
     insert into tb_token (_key, _token, _expire_at
       )
     values (#{key,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{expireAt,jdbcType=INTEGER}
       )
   </insert>
-  
-  <update id="updateByPrimaryKey" parameterType="com.wl.model.Token" >
+
+    <update id="updateByPrimaryKey" parameterType="com.wl.token.entity.Token">
     update tb_token
     set _token = #{token,jdbcType=VARCHAR},
       _expire_at = #{expireAt,jdbcType=INTEGER}
     where _key = #{key,jdbcType=VARCHAR}
   </update>
-  <update id="updateExipreByPrimaryKey" parameterType="com.wl.model.Token" >
+    <update id="updateExipreByPrimaryKey" parameterType="com.wl.token.entity.Token">
     update tb_token
     set _expire_at = #{expireAt,jdbcType=INTEGER}
     where _key = #{key,jdbcType=VARCHAR}
