@@ -7,7 +7,7 @@
     <title>首页</title>
 </head>
 <body>
-<form action="login" method="post">
+<form action="file/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file1">
     <input type="file" name="file2">
     <input type="submit" value="登陆"/>

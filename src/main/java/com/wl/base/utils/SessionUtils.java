@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 public class SessionUtils {
 
     public static boolean isLogined(HttpServletRequest req) {
-        if (req != null && req.getSession() != null) {
-            return req.getSession().getAttribute("user_id") != null;
+        if (req != null) {
+            return req.getSession(true).getAttribute("user_id") != null;
         }
 
         return false;
     }
 
     public static void setUserId(HttpServletRequest req, String account) {
-        req.getSession().setAttribute("user_id", account);
+        req.getSession(true).setAttribute("user_id", account);
     }
 }
